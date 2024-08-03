@@ -1,0 +1,336 @@
+<script>
+    // REV SENTENCE WITHOUT INBUILT METHODS
+
+// const str = "my name is priya";
+
+// let string = "";
+// let words = [];
+// let newStr = "";
+
+// for (i = 0; i < str.length; i++) {
+//   if (str[i] == " ") {
+//     words.push(string);
+//     string = "";
+//   } else {
+//     string += str[i];
+//   }
+// }
+// if (string) words.push(string);
+
+// for (i = words.length - 1; i >= 0; i--) {
+//   newStr += words[i] + " ";
+// }
+
+// console.log(newStr);
+
+// // PRINT AFTER EVERY SECOND
+
+// function test(i) {
+//   setTimeout(() => {
+//     console.log(i);
+//   }, i * 1000);
+// }
+
+// for (i = 0; i <= 3; i++) {
+//   test(i);
+// }
+
+// // MOVE 0 AT THE END OF ARRAY
+
+// const x = [5, 0, 0, 10, 4, 5, 0];
+// // out- [5,10, 4, 5, 0, 0, 0]
+
+// let newArr = [];
+// let zeroCount = 0;
+// for (i = 0; i < x.length; i++) {
+//   if (x[i] == 0) {
+//     zeroCount++;
+//   } else {
+//     newArr.push(x[i]);
+//   }
+// }
+
+// for (i = 0; i < zeroCount; i++) {
+//   newArr.push(0);
+// }
+
+// console.log(newArr);
+
+// // MOVE NEGATIVE TO END
+
+// const x = [5, 0, -5, 0, 10, -1, 4, 5, 0];
+// // out- [5,10, 4, 5, 0, 0, 0]
+
+// let newArr = [];
+// let zeroCount = 0;
+// negativeArr = [];
+
+// for (i = 0; i < x.length; i++) {
+//   if (x[i] < 0) {
+//     negativeArr.push(x[i]);
+//   } else {
+//     newArr.push(x[i]);
+//   }
+// }
+
+// console.log([...newArr, ...negativeArr]);
+
+
+// /*
+// Write a function to flatten all the nested keys in the object.
+// - There should be no nested objects
+// - All the keys should be at the top level
+
+// Example - Input :
+
+
+// Expected Output:
+// {
+//   "id": 123,
+//   "name": "abc",
+//   "hno": "1",
+//   "state": "Delhi",
+//   "country": "India",
+//   "primaryPhone" : "111111",
+//   "alternatePhone" : "222222"
+//   "primaryEmail" : "a@b.com",
+//   "alternateEmail" : "c@d.com"
+// }
+// */
+
+// let a = {
+//   id: 123,
+//   name: "abc",
+//   address: {
+//     hno: "1",
+//     state: "Delhi",
+//     country: "India",
+//     phone: {
+//       primaryPhone: "111111",
+//       alternatePhone: "222222",
+//     },
+//     email: {
+//       primaryEmail: "a@b.com",
+//       alternateEmail: "c@d.com",
+//     },
+//   },
+// };
+
+// let b = {
+//   a: 123,
+// };
+
+// function flat(obj,resObj={})
+//   {
+//     let newObj = resObj;
+//     Object.keys(obj).forEach((keys)=>{
+//       if(typeof(obj[keys]) == 'object' ){
+//            flat(obj[keys],newObj);
+//          }
+//       else {
+//         newObj[keys] = obj[keys]
+//       }
+     
+//     })
+//     return newObj;
+//   }
+
+// console.log(flat(a));
+// console.log(flat(b));
+
+/////////////////////////////////////// SAPIENT
+
+// function Person(name) {
+
+//   this.name = name;
+
+// }
+
+// Person.prototype.getName = () => {
+
+//   return this.name;
+
+// };
+
+// const tom = new Person('Tom')
+
+
+////////////////////////
+
+// a = {a:1}
+
+// obj =new Object()
+
+// a.__proto__.__proto__
+
+// Object.prototype
+
+
+// arr =[]
+
+// arr.__proto__.__proto__.__proto__
+
+/////////////////////
+var fullname = "John Doe";
+
+var obj = {
+  fullname: "Colin Ihrig",
+
+  prop: {
+    fullname: "Aurelio De Rosa",
+
+    getFullname: function () {
+      return this.fullname; //Aurelio De Rosa
+    },
+  },
+
+  getMyName: function () {
+    return this.fullname; // Colin Ihrig
+  },
+
+  getFirstName: () => {
+    return this.fullname.split(" ")[0]; // John 
+  },
+
+  getLastName: (function () {
+    return this.fullname.split(" ")[1]; //  Doe
+  })(),
+};
+
+// var makeSequencer = function() {
+
+//   var _count = 0;
+
+//   var sequencer = function () {
+
+//       return _count++;
+
+//   }
+
+//   return sequencer;
+
+// }
+
+
+
+// var fnext = makeSequencer();
+
+// var v0 = fnext();    // 0 
+
+// var v1 = fnext();    // 1
+
+// var vz = fnext._count // 2
+
+const str = "my name is priya";
+
+let string = "";
+let words = [];
+let newStr = "";
+
+for (i = 0; i < str.length; i++) {
+  if (str[i] == " ") {
+    console.log('empty string')
+    words.push(string);
+    string = "";
+  } else {
+    console.log('not empty string')
+    string += str[i];
+  }
+}
+console.log(string,'dd')
+if (string) words.push(string);
+
+for (i = words.length - 1; i >= 0; i--) {
+  newStr += words[i] + " ";
+}
+
+console.log(newStr);
+
+// duplicate element from array
+const studentsList = [
+{id:"876553BC",name:"Siva"},
+{id:"765432BC",name:"Keerthana"},
+{id:"987120BC",name:"Suma"},
+{id:"876553BC",name:"Siva"},
+{id:"876003BC",name:"Pradeep"},
+{id:"765432BC",name:"Keerthana"},
+{id:"816563BC",name:"Lakshmi"},
+]
+let arr = [];
+const dataset =  studentsList.filter((data,i)=>{
+ let duplicate = arr.includes(data.id);
+ console.log(duplicate)
+ if(!duplicate){
+ arr.push(data.id);
+ return true;
+ }
+ else{
+ return false;
+ }
+})
+
+console.log(arr,dataset)
+
+
+//sum keys value of objects 
+
+let gradeSheet1 = { 
+"mathematics1":49, 
+"Computing Techniques":48,
+"Fundamental English":45, 
+"Practical":39 
+};
+
+let gradeSheet2 = { 
+"mathematics1":42, 
+"Computing Techniques":48,
+"Fundamental English":40, 
+"Practical":30 
+}
+
+function sumObject (...objs){
+
+let combinedata = { };
+
+  for(let i = 0 ; i < objs.length ; i++){
+  let b = objs[i]
+       for(let data in b){
+        combinedata[data] = (combinedata[data] || 0) + b[data] ;
+        console.log(combinedata[data],'ll' , b[data])
+       }
+  }
+  return combinedata;
+    
+}
+
+console.log(sumObject(gradeSheet1,gradeSheet2))
+
+
+let obj = {};
+
+
+Object.keys(gradeSheet1).forEach((data)=>{
+      obj[data] = gradeSheet1[data] + gradeSheet2[data];
+}) 
+
+console.log(obj)
+
+// setTimeout(() => {
+// 	console.log("setTimeout-called");
+// }, 0);
+
+// async function foo(name) {
+//   console.log(name, "start");
+//   await console.log(name, "middle");
+//   console.log(name, "end");
+// }
+
+// foo("First");
+// foo("Second");
+
+// console.log("ended");
+
+
+
+
+</script>

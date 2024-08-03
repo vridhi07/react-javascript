@@ -1,0 +1,141 @@
+<!-- 
+Q1 myFunc();
+function myFunc() {
+myName = "whatever"
+}
+console.log(myName);
+Q2 how to resolve this promise without then like store data in promise variable and return that data
+const myPromise = new Promise((resolve, reject) => {
+   const arr = [1,2,3]
+        resolve(arr)
+    })
+Q3(function() {
+    console.log(1); 
+    setTimeout(function(){console.log(2)}, 1000); 
+    setTimeout(function(){console.log(3)}, 0); 
+    console.log(4);
+})();
+Q4 typeof(typeof(5));'string' 
+Q5 what is scooping and closure?
+Q6 console.log(null === undefined)
+Q7 console.log(null == undefined)
+Q8 var a={},
+    b={key:'b'},
+    c={key:'c'};
+
+a[b]=123;
+a[c]=456;console.log(a[b]);
+Q9 how to center a div
+<div class="content">This works with any content</div>
+.content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+Q10 what is webkit
+Q11 what is pseudoo classes and elements
+Q12 if we design scroll bar using pseudoo classes how we can do it
+Q13 why do we need js 
+Q14 different data types in javascript
+Boolean type
+Null type
+Undefined type
+Number type
+BigInt type
+String type
+Symbol type
+Q14 javascript data binding two or one way
+Q15 hoisting
+Q15 block and functional scope 
+Q16 what is significance of this keyword
+Q18 what is aynchronous functions
+Q17 difference between call, apply and bind
+Q18 why we use extends in react
+Q18 setstate is aync / sync
+Q20 cleanup function in useeffect
+
+https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/#:~:text=What%20is%20the%20useEffect%20cleanup,itself%20using%20the%20cleanup%20function.
+https://dev.to/otamnitram/react-useeffect-cleanup-how-and-when-to-use-it-2hbm
+
+let a = {};
+let b = { key: "b" };
+let c = { key: "c" };
+
+a["vridhi"] = "react developer"; //{vridhi: 'react developer'}
+console.log(a, "lll");
+
+a[b] = "software developer";
+console.log(a, "====="); //{vridhi: 'react developer', [object Object]: 'software developer'}
+
+a[c] = "engineer developer";
+console.log(a, "+++++++");//{vridhi: 'react developer', [object Object]: 'engineer developer'}
+console.log(a[b]);//{vridhi: 'react developer', [object Object]: 'engineer developer'}
+typeof(typeof(5)); 
+
+
+const myPromise = new Promise((resolve, reject) => {
+   const arr = [1,2,3]
+        resolve(arr)
+    })()
+
+
+
+OOPS concept
+JS pattern
+JS prototype
+basics of call apply and bind
+SPA
+Code splitting
+Redux
+Unit testing
+Source control
+Deployment
+Ajile environment experience
+Asyncronus Programming
+PWA -> Progressive web apps
+Socket
+Architecture -> (Singleton, MVC, MVA, etc)
+Design Paterns
+DSA->
+	- Stack (Balanced Paranthesis)
+	- Queue (Basic Working)
+	- LinkedList (Reversal of list)
+JS—>
+	- Hosting 
+	- Closure
+	- Classes
+OUT of box -> Versions of React, changelog
+Something self created -> Open source contributions, Publishings, etc
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      .container {
+        height: 100vh;
+        display: flex;
+      }
+
+      .box-1 {
+        width: 120px;
+        height: 120px;
+        background-color: skyblue;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="box-1">Box-1</div>
+    </div>
+  </body>
+</html>
