@@ -1,0 +1,44 @@
+<script>
+  // browser containe jsengine , localstorage , timer
+
+  // var sahgh = true;
+  // setTimeout(()=>{
+  //     sahgh = false;
+  // },2000);
+  // while(sahgh)
+  //  {
+  //      console.log('hello world');
+  //  }
+  //  debugger;
+
+  setTimeout(() => console.log("timeout"), 0);
+  setImmediate(() => console.log("immediate"));
+  process.nextTick(() => console.log("nextTick"));
+  console.log("current event loop");
+
+  //browser contain js engine javascript is a synchronous single threaded language it has one call stack ,
+  //it can do one thing at a time this call stack is present inside js engine all operation perform inside
+  //call stack, whenever any javascript prorgram execute the global execution context is created, call
+  //stack doesnot have a timer so it doesnot perform operation which is excecuted after 5 sec
+
+  //browser -> jsengine -> callstack -> where all the programs run
+
+  //web apis -> setTimeout() , Dom-Api (document.getElment), fetch() , localstorage , console , location
+
+  // all web apis  is not a part of javascript only browser have this apis gave access with the help of global object window
+  // [eg : window.setTimeout] to jsengine to use them , window.setTimeout and settimeout both is same thing
+
+  console.log("Start"); // firstly GEC is created then call web api console  and print start on console
+  setTimeout(function cb() {
+    console.log("callback");
+  }, 5000);
+  console.log("end");
+
+  //setTimeout call setTimeout web api which gave access to timer feature and it registered the callBack
+  //soon as timer expires ,this callback method needs to go inside call stack, but it directly not go inside callstack,
+  //it go to call stack through call back queue , when time expire it go to call back queue
+  // event loop check the call queue and put the function into call stack
+  // all the functions which comes from promises go inside the microtask and it has higher priority
+  // The MutationObserver interface provides the ability to watch for changes being made to the DOM tree.
+  //starvation of task inside call back queue
+</script>

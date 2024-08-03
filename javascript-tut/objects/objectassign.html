@@ -1,0 +1,41 @@
+<script>
+    The Object.assign() copies all enumerable and own properties 
+    from the source objects to the target object. It returns the target object.
+
+    Object.assign(target, ...sources)
+
+let widget = {
+color: 'red'
+};
+
+let clonedWidget = Object.assign({}, widget);
+console.log(clonedWidget); //{ color: 'red' }
+
+
+let box = {
+    height: 10,
+    width: 20
+};
+let style = {
+    color: 'Red',
+    borderStyle: 'solid'
+};
+let styleBox = Object.assign({}, box, style);
+console.log(styleBox);//{ height: 10, width: 20, color: 'Red', borderStyle: 'solid'}
+
+
+let box = {
+    height: 10,
+    width: 20,
+    color: 'Red'
+};
+
+let style = {
+    color: 'Blue',
+    borderStyle: 'solid'
+};
+
+let styleBox = Object.assign({}, box, style);
+
+console.log(styleBox);//{height: 10,width: 20,color: 'Blue',borderStyle: 'solid'}
+</script>

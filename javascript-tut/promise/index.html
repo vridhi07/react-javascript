@@ -1,0 +1,67 @@
+<!--Javascript is synchoronous single threaded language of if we want to wait for some code to run after some time we use callback-->
+<!--with the help of callback we can do asynchronous thing in javascript-->
+
+A callback is a function that is passed as an argument to another function and is executed after the completion of a particular task or event.
+it ensuring that certain code executes after a specific task has been completed.
+
+Disadvantages of Callbacks
+Callback Hell:hen callbacks are nested within other callbacks multiple levels deep, it creates a structure that is hard to read and maintain.
+This phenomenon is known as "callback hell" or the "pyramid of doom."
+Error Handling:: Error handling with callbacks can be cumbersome. Each callback needs to handle errors explicitly
+Inversion of Control::With callbacks, you hand over control of your function to another function, which can lead to issues
+if not properly managed. The callback function execution is dependent on the external function's implementation.
+
+Alternatives to Callbacks
+Promises:
+Async/Await:
+
+
+
+
+<script>
+    // ex1
+    console.log('sysnc');
+
+    setTimeout(()=> {   //callback function
+        for(let index=0; index<12; index++)
+        {
+            const element = index;
+            console.log("this is the number" + element);
+        }
+    },100);
+
+    console.log('done printing');
+
+    // ex2
+
+    const cart = ["shoes","pant" ,"kurta"];
+    api.createdOrder();
+
+
+    // we want to call proceed to payment after the order is created after payment is successfully need to show payment page
+
+    //callback
+
+    api.createdOrder(cart,function() { //passing callback function to another functions -> we pass this function and createdOrder api call this function when ever they want to call
+        api.proceedToPayment(function() {
+            api.orderSummaryPage()
+        })
+    });
+
+    const promise = createdOrder(cart);
+
+    promise.then(function , (orderId){
+        proceedToPayment(orderId) // we are attaching call back to promise object means it gurantee that whenever we get data in promise object then proceed to payment function call
+    })
+
+    //promise chain
+
+    createdOrder(order)
+        .then((orderId) => proceedToPayment(orderId))
+        .then((paymentInfo) => showOrderSummaryPaymentInfo(paymentInfo))
+        .then((paymentInfo) => updateWalletInfo(paymentInfo))
+
+
+
+
+</script>

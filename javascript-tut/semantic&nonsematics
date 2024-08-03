@@ -1,0 +1,24 @@
+Semantic HTML elements:
+These elements simply mean, elements with meaning. The reason being, there definition in the code tells the browser and the developer what they are supposed to do. Framing in simpler words, these elements describe the type of content they are supposed to contain.
+
+Following is the list of some semantic elements :
+
+article
+aside
+details
+figcaption
+figure
+footer
+form
+header
+main
+mark
+nav
+table
+section
+
+Non-Semantic elements:
+Unlike, semantic elements they don’t have any meaning. They don’t tell anything about the content they contain. They can be used with different attributes to mark up semantics common to a group.
+
+div
+span

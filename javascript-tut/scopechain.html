@@ -1,0 +1,84 @@
+<script>
+//scope means where you can access specifice function or variable in a code
+// whenever an execution context is created a lexical environmanet is also created
+// lexical environment is a local memory along with lexical environment of its parent
+// A lexical environment  holds a memory + reference to a parent lexical environment.
+// lexical in hierachy // c is lexical present inside a or a is lexical inside global scope
+// lexical environment of a is c , lexical environment of anonyms is a
+// scope chain is finding variables present in a every excution context the wholw chain of lexical environment
+// is known as scope chain
+//lexical parent menas where actually that parent sit inside the code
+//a scope = local memory + lexical env of global
+
+// lexical environmet of a is local memory + lexical envi of parent
+
+//https://dev.to/abdulazizcode/scope-lexical-environment-4pdd
+
+    function a ()
+    {
+      console.log(b); // 10
+    }
+     var b=10;
+    a();
+
+
+    function a ()
+    {
+        c();
+        function c(){
+      console.log(b);} // 10
+    }
+    var b=10;
+    a();
+
+    function a ()
+    {
+        var b=10; // b is not present in global scope it is present in local scope
+        c();
+        function c(){} 
+    }
+  
+    a();
+    console.log(b);// b is not defined
+
+
+function two(){
+  var a; // shadow the localscope
+  console.log(a);
+}
+function one(){
+  var a=2; //local scope
+  console.log(a);
+  two();
+}
+var a=1;
+console.log(a);
+one(); //1 2 undefined
+
+
+function two(){
+  console.log(a);
+}
+function one(){
+  var a=2;
+  console.log(a);
+  two();
+}
+var a=1;
+console.log(a);
+one(); // o/p 1,2,1
+
+function one(){
+    function two(){
+         console.log(a); //forming closure which stores a value 2
+    }
+     two();
+    var a=2;
+    console.log(a);
+   
+}
+var a=1;
+console.log(a);
+one();  // o/p 1 2 2
+
+</script>

@@ -1,0 +1,149 @@
+<script>
+// function Employee(firstname,lastname)
+// {
+//   this.firstname = firstname;
+//   this.lastname = lastname;
+// }
+
+// Employee.prototype.fullname = function()
+// {
+//    return this.firstname+""+this.lastname;
+// }
+// var employe1 = new Employee('vridhi','wadhwan');
+// var employe2= new Employee('hello','vridhi');
+// console.log(employe1);
+// console.log(employe2);
+// console.log(employe1.fullname());
+
+
+// new object
+// const obj = new object ({
+//   name:"vridhi"
+// })
+// const ibj = new obj();
+const obj = {
+  name: "vridhi",
+  getName:function(){
+    return this.name;
+  },
+  getRoll :function(){
+    return this.roll;
+  }
+}
+console.log(obj); 
+
+const obj2 = {
+  roll:1,
+  name:"vivek",
+  __proto__:obj
+}
+console.log(obj2.getRoll()); //o/p 1
+console.log(obj2.getRoll()); //o/p 1
+
+
+const obj3 = {
+  class:"mca",
+  __proto__:obj2
+}
+console.log(obj3);
+
+const arrays = ["ajay"];
+console.log(arrays);
+
+const array1 = new Array();
+console.log(array1);//prototype and  object
+
+
+//own prototype arraya k prototype mei add krna show function
+Array.prototype.show = function(){
+  return this; // return array
+}
+const cities = ["Delhi"];
+//console.log(cities.show());
+
+
+Array.prototype.convertintoobject = function() {
+  
+  let newObj = {};
+  console.log(this,'newObj'); //["Delhi"]
+  this.forEach(element=>{
+    newObj[element]=element;
+  })
+  return newObj;
+}
+console.log(cities.convertintoobject()); // o/p{Delhi: 'Delhi'}
+
+
+
+//how to create prototype
+function MyPrototype(name){
+  this.name = name;
+}
+MyPrototype.prototype = obj;
+const myproto = new MyPrototype("pp");
+console.log(myproto);
+
+
+
+//akshay sahini
+
+let arr = ["vridhi","wadhwan"];
+console.log(arr.__proto__); //o/p get all function inside array
+
+let objects = {
+  fname : "vridhi",
+  lname:"wadhwan",
+  getData : function(){
+    console.log(this.fname + " " + this.lname)
+  }
+};
+
+function fun() {
+
+}
+
+console.log(arr.__proto__); //o/p get all function inside array
+console.log(objects.__proto__); //o/p get all function inside array
+
+// arr.__proto__ is same as Array.prototype
+// arr.__proto__ == Array.prototype
+// arr.__proto__.__proto__ == objects.__proto__ / Object.prototype
+// arr.__proto__.__proto__.__proto__ == null
+
+//objects.__proto__ ==  Object.prototype
+//objects.__proto__.__proto__ == null
+
+//fun.__proto__ == Function.prototype
+//fun.__proto__.__proto__ == objects.__proto__ / Object.prototype
+//fun.__proto__.__proto__.__proto__ == null
+
+// array prototype is object prototype and object prototype is null
+
+
+let objectss = {
+  fname : "vridhi",
+  lname:"wadhwan",
+  getData : function(){
+    console.log(this.fname + " " + this.lname)
+  }
+};
+
+let object2 = {
+  fname : "abcd",
+};
+
+//never do this
+object2.__proto__ = objectss;
+console.log(object2.__proto__); //o/p {fname: "vridhi"getData: ƒ ()lname: "wadhwan"}
+//object2.fname = abcd , object2.lname = wadhwan 
+
+
+Function.prototype.mybind = function (){
+    console.log('heelo world')
+}
+
+function fn(){
+    
+ }
+ // fun.__proto__.mybind() // heelo world
+</script>

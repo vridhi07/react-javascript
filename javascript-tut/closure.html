@@ -1,0 +1,203 @@
+<!-- <script>
+// closure function is action that is inner function can have access to the outer functions 
+// variables as well as all the global variables
+
+
+// return statement does not execute the inner function function is executed only when followed by () ,but
+// rather the return statement returns the entire body of the function outfunction cannot use inner function variables
+
+n JavaScript, a closure is a function that retains access to its lexical scope, even when the
+function is executed outside that scope. Closures are created whenever a function is defined inside another function,
+allowing the inner function to access variables and parameters of the outer function.
+
+A closure is a combination of a function and the lexical environment within which that function was declared.
+This environment consists of any local variables that were in-scope at the time the closure was created. In simpler terms,
+a closure gives you access to an outer function's scope from an inner function.
+   
+/// use of closure
+// module design pattern
+// currying
+// function like once
+// memoize
+// maintaining state in asybc world
+// setTimeout
+// iterators
+
+
+// var sum = function(a){
+//     console.log('live viewer'+a);
+//     var c=4;
+//         return function (b){
+//             return a+b+c
+//         }
+//     }
+
+//     var store = sum(2);
+//     console.log(store(5));
+
+
+//     var d=5;
+//     const outerfun = (a) => {
+//     let b =10;
+//     const innerfunction = () => {
+//         let sum = a+b+d;
+//         console.log(sum);
+//     }
+//     //innerfunction();
+//     return innerfunction;
+//     }
+//     let inner = outerfun(5); // no result
+//     console.dir(inner);
+//     inner(); //o/p 20
+
+//     //akshay sahini
+
+    
+//     function x(){
+//         var a = 7;
+//         function y (){
+//             console.log(a)
+//         }
+//         return y;// when y is returned then x is gone , x is no longer present in call stack
+//     }
+//     var z = x(); 
+//     console.log(z);// o/p ƒ y (){console.log(a)}
+//     z(); //o/p 7 // because when function returned from another function they still maintain lexical scope
+//     // they remember where they actually present
+
+//     function x(){
+//         var a = 7;
+//         function y (){
+//             console.log(a)
+//         }
+//         return y;
+//         a=100;
+//     }
+//     var z = x(); 
+//     console.log(z);// o/p inner function
+//     z(); //o/p 100
+
+
+//    function z(){
+//        var b =900;
+//     function x(){
+//         var a = 7;
+//         function y (){
+//             console.log(a,b)
+//         }
+//        y();
+//     }
+//     x();
+//    }
+
+//     z(); 
+
+
+
+
+//     // //settimeout with closure
+//     function x(){
+//         for(var i=0; i<=5 ; i++){ // //i= 0 stored in local scope
+//             setTimeout(function(){
+//                 console.log(i)
+//             },i*1000);
+//         }
+//         console.log('namaste javascript');
+//     }
+//     x(); 
+// // o/p 
+// // namaste javascript
+// // 6
+// // 6
+// // 6
+// // 6
+// // 6
+function x(){
+        for(let i=0; i<=5 ; i++){ // i= 0 stored in local scope copy of i in each iteration is new
+            setTimeout(function(){
+                console.log(i)
+            },i*1000);
+        }
+        console.log('namaste javascript');
+    }
+    x(); 
+// // o/p 
+// // namaste javascript
+// // 1
+// // 2
+// // 3
+// // 4
+// // 5
+ 
+// without let //Block scope close: ƒ close(i)
+    function x(){
+        for(var i=0; i<=5 ; i++){
+            function close(i){
+                setTimeout(function(){
+                console.log(i)
+                },i*1000);
+            }
+            close(i);
+        }
+        console.log('namaste javascript');
+    }
+    x();
+    
+</script> -->
+<script>
+  function x() {
+    for (var i = 0; i <= 5; i++) {
+      function close(i) {
+        setTimeout(function () {
+          console.log(i);
+        }, i * 1000);
+      }
+      close(i);
+    }
+    console.log("namaste javascript");
+  }
+  x();
+
+  function counter() {
+    var count = 0;
+    function incrementcounter() {
+      count++;
+    }
+  }
+  console.log(count); //reference error count is not defined
+
+  function counter() {
+    var count = 0;
+    return function incrementcounter() {
+      count++;
+      console.log(count);
+    };
+  }
+  var counter1 = counter();
+  counter1(); //1
+  counter1(); //2 //data hiding concept
+
+  var counter2 = counter();
+  counter2();
+  counter2();
+
+  function counter() {
+    var count = 0;
+    this.incrementcounter = function () {
+      count++;
+      console.log(count);
+    };
+    this.decrementcounter = function () {
+      count--;
+      console.log(count);
+    };
+  }
+  var counter1 = new counter();
+  counter1.incrementcounter(); //1
+  counter1.incrementcounter(); //2
+  counter1.decrementcounter(); //1
+
+  //disadvantage
+  //it consume lot of energy because those variable are not garbage collector
+  //
+</script>

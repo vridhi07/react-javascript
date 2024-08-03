@@ -1,0 +1,73 @@
+<script>
+    // Promise.all: This method takes an iterable of promises (typically an array) and returns a single promise that
+    // resolves when all of the promises in the iterable have resolved or if the iterable contains no promises.
+    // It rejects with the reason of the first promise that rejects.
+
+
+    //it will wait all of them to finish and then it will return the value
+    //as soon any of them reject it will reject the promise
+
+    const promise1 = Promise.resolve(3);
+    const promise2 = 42;
+    const promise3 = new Promise((resolve, reject) => {
+        setTimeout(resolve, 100, 'foo');
+    });
+
+    Promise.all([promise1, promise2, promise3]).then((values) => {
+        console.log(values); // [3, 42, "foo"]
+    });
+
+    // Promise.allSettled: This method takes an iterable of promises and returns a promise that resolves after all of the given
+    // promises have either resolved or rejected, with an array of objects that each describe the outcome of each promise.
+
+    //it will wait all of them to finish and then it will return the value
+    //if one of these promise is rejected it wait for all promise to settled and then it will return the value
+
+    const promise1 = Promise.resolve(3);
+    const promise2 = new Promise((resolve, reject) => setTimeout(reject, 100, 'error'));
+    const promise3 = 42;
+
+    Promise.allSettled([promise1, promise2, promise3]).then((results) => {
+        results.forEach((result) => console.log(result.status));
+    });
+    // "fulfilled"
+    // "rejected"
+    // "fulfilled"
+
+
+    // Promise.race: This method takes an iterable of promises and returns a promise that resolves or rejects as soon as one of the
+    // promises in the iterable resolves or rejects, with the value or reason from that promise.
+
+    //it will wait for the first promise to resolve  and  reject then it will return the value
+
+
+    const promise1 = new Promise((resolve, reject) => {
+        setTimeout(resolve, 500, 'one');
+    });
+
+    const promise2 = new Promise((resolve, reject) => {
+        setTimeout(resolve, 100, 'two');
+    });
+
+    Promise.race([promise1, promise2]).then((value) => {
+        console.log(value); // "two"
+    });
+
+
+    // Promise.any: This method takes an iterable of promises and returns a single promise that resolves as soon as any of the promises
+    // in the iterable resolves. If no promises in the iterable resolve (if all of the given promises are rejected), then the returned
+    // promise is rejected with an AggregateError, a new subclass of Error that groups together individual errors.
+
+    //it will wait for the first successful promise to resolve and then it will return the value
+    //if all of these promise is rejected it will reject the promise
+
+    const promise1 = Promise.reject('error1');
+    const promise2 = Promise.reject('error2');
+    const promise3 = new Promise((resolve) => setTimeout(resolve, 100, 'three'));
+
+    Promise.any([promise1, promise2, promise3]).then((value) => {
+        console.log(value); // "three"
+    }).catch((err) => {
+        console.log(err);
+    });
+</script>

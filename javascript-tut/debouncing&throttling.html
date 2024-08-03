@@ -1,0 +1,64 @@
+<!-- Debouncing -------- 
+The major difference between debouncing and throttling is that debounce calls a function 
+when a user (hasn’t carried out an event) in a specific amount of time, while throttle calls a 
+function at intervals of a specified amount of time (while the user is carrying out an event). 
+
+In the debouncing technique, no matter how many times the user fires the event, the attached function will be
+executed only after the specified time once the user (stops firing the event). jb stop krde event fire krna uske specific time interval mei api call hogi
+
+Throttling is a technique in which, no matter how many times the user fires the event, the attached 
+function will be executed only once in a (given time interval). jo usko time interval diya h uske 
+baad event fire hoga
+
+
+debouncing and Throttling both used for optimising performance of web apps  we can achieve this by 
+limiting rate of function call
+debouncing means only make an api call if the difference between two key press events is greater than 
+certain limits , throttling means only call api after certain limit time
+-->
+
+<body>
+  <input type="text" name="search" id="search" placeholder="Search" />
+</body>
+
+<script>
+const throttle = (func, delay) => {
+  let toThrottle = false;
+  return function () {
+    if (!toThrottle) {
+      toThrottle = true;
+      func.apply(this, arguments);
+      setTimeout(() => {
+        toThrottle = false;
+      }, delay);
+    }
+  };
+};
+
+const debounce = (func, delay) => {
+  let timerId;
+  return function () {
+      clearTimeout(timerId)
+      timerId = setTimeout(() => func.apply(this, arguments), delay)
+  };
+};
+
+function handleButtonClick() {
+  callbackFn1();
+  callbackFn2();
+}
+
+function handleConsole() {
+  console.count("throttle function executed!!");
+}
+
+let callbackFn1 = throttle(handleConsole, 1000);
+let callbackFn2 = debounce(handleConsole, 1000);
+
+let textField = document.querySelector("#search");
+textField.addEventListener("input", handleButtonClick);
+</script>
+
+   
+ 
+

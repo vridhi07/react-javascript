@@ -1,0 +1,26 @@
+<!-- defer
+The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to 
+process the HTML, build DOM. The script loads “in the background”, and then runs when the DOM is fully built. -->
+<!-- Scripts with defer never block the page.
+Scripts with defer always execute when the DOM is ready (but before DOMContentLoaded event). -->
+
+<!-- async scripts load in the background and run when ready. The DOM and other scripts don’t wait for them, and they don’t wait for anything. 
+ A fully independent script that runs when loaded. As simple, as it can -->
+
+
+<!-- Async - means execute code when it is downloaded and do not block DOM construction during downloading process.
+Defer - means execute code after it's downloaded and browser finished DOM construction and rendering process. -->
+
+async
+Purpose: Loads the script asynchronously, meaning the script will be fetched in the background while the HTML parsing continues.
+Execution: Once the script is downloaded, it will execute immediately, pausing the HTML parsing to run the script.
+This can be useful for scripts that do not depend on the rest of the HTML or other scripts.
+Use Case: Use async when the script can be executed independently of other scripts and doesn't rely on the DOM being fully parsed.
+Examples include analytics scripts or other third-party scripts.
+
+defer
+Purpose: Loads the script in the background while the HTML parsing continues.
+Execution: The script will execute only after the HTML parsing is complete. This ensures that the entire
+DOM is available to the script.
+Use Case: Use defer for scripts that need to interact with the DOM or depend on other scripts being executed
+first. It ensures a predictable order of execution.

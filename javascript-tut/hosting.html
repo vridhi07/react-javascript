@@ -1,0 +1,82 @@
+<!-- Execution context, in simple words, is the environment that a function executes in. 
+Every function in javascript has its own execution context.
+All execution contexts have a creation phase and an execution phase.
+In the creation phase, the execution context exhibits a behavior called hoisting.
+Hoisting is the behavior of moving all the declarations at the top of the scope before code
+execution which happens in the execution phase. The javascript engine goes through the
+code and looks for all “var”s and “function”s and declares them, initializing to undefined,
+before actually starting to execute the statements. In other words, 
+it assigns memory for all vars and functions in the code before executing the code statements. 
+
+
+The JavaScript engine before parses the code before executing and during the parsing phase it shifts 
+all the variable declaration to the top of the scope. This behavior of the JS engine is called hoisting.
+
+https://dev.to/anku/are-let-and-const-hoisted-4kbi
+https://medium.com/swlh/what-is-hoisting-in-javascript-why-and-how-to-avoid-using-it-e923c7a751e7
+
+
+
+let and const are hoisted too. But the difference is that they are not initialized, unlike var
+which is initialized to undefined. Hence, let or const should be used instead of var to avoid hoisting 
+side effects as shown in the below snippet. This is because it would throw an exception since it would 
+not allow animal to be used before its declaration.
+-->
+
+<script>
+//the below code snippet will print out undefined. 
+//only global variable attached to windows
+
+var a = 10;
+console.log(window.a);
+
+let numbers = [4,2,6];
+numbers.sort((a,b) =>
+{
+    console.log(a);
+    console.log(b);
+
+} );
+console.log(numbers);
+
+
+//1
+getName();//Namste Javascript
+console.log(x);//undefined
+var x= 7;
+function getName(){
+    console.log('Namste Javascript');
+}
+
+//2
+getName();//Namste Javascript
+console.log(x);//x is not defined
+function getName(){
+    console.log('Namste Javascript');
+}
+
+//3
+var x= 7;
+function getName(){
+    console.log('Namste Javascript');
+}
+console.log(getName);//ƒ getName(){console.log('Namste Javascript');}
+
+//4
+console.log(getName);//ƒ getName(){console.log('Namste Javascript');}
+var x= 7;
+function getName(){
+    console.log('Namste Javascript');
+}
+//5
+//getNames();// Uncaught TypeError: getNames is not a function
+console.log(getNames);//undefined
+console.log(xy); //undefined
+var xy= 7;
+var getNames = ()=>{
+    console.log('Namste Javascript');
+}
+</script>
+
+
+//https://developer.mozilla.org/en-US/docs/Glossary/Hoisting

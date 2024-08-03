@@ -1,0 +1,79 @@
+<html>
+    
+    <Script>
+    // major difference between function statement and expression is hoisting
+
+        a();//o/p a called
+        // b();// b is not a function
+        //function statement is a function declaration
+
+        //function statement  
+        // function a(){
+        //     console.log('a called');
+        // }
+
+        function a(){
+            console.log('a called');
+        }
+        a();
+
+        //function expression
+
+        //function expression  
+        // var b = function() {
+        //     console.log('b called');
+        // }
+
+        var b = function() {
+            console.log('b called');
+        }
+        b();
+
+        //We have two different way for doing function expression in JavaScript:
+        //Named function expression (NFE): 
+        //Anonymous function expression:
+
+        //anonymous functions expression
+
+        // function without name is an anonymous function , anonymous function does not have own identity
+        // it is used when functions used as a values
+        // assign anonymous function to a variable
+        // in function statement you cannot write anonymous, function statement require function name
+        // function () {
+        //     console.log('b called');
+        // }
+
+        // named function expression
+        var c = function xyz() {
+            console.log('named function called');
+            console.log(xyz); // o/p ƒ xyz() {console.log('named function called');console.log(xyz)}
+        }
+        c(); //o/p 'named function called'
+        xyz(); //o/p Uncaught ReferenceError: xyz is not defined
+
+
+        // difference between parameter and arguments
+        var bv = function(parameter) {
+            console.log('b called');
+        }
+        bv(arguments);
+
+        // first class functions
+        //the ability of functions to use as a values 
+        //can be passed as an arguments to another function
+        //and can be return from other function this ability is known as first class functions
+
+        // if functions in that language are treated like other variables. So the functions can be 
+        // assigned to any other variable or passed as an argument or can be returned by another function.
+        // JavaScript treat function as a f
+
+        // Higher-Order Function: A function that receives another function as an argument or that returns
+        // a new function or both is called Higher-order functions.
+        var bv = function(c) {
+            console.log(c);
+        }
+        bv(c);
+
+
+    </Script>
+</html>

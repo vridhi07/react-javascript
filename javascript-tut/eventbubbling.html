@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <style>
+            div{
+                min-width: 100px;
+                min-height: 100px;
+                padding: 30px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="grandparent">
+            <div id="parent">
+                <div id="child"></div>
+            </div>
+        </div>
+    </body>
+    <script>
+        // grandparent clicked is called when click on grandparent, parent, child'
+
+        // when child div click then output is child clicked , parent clicked , grandparent clicked
+        // when parent div click then  output is parent clicked , grandparent clicked
+        // when grandparent div click then  output is grandparent clicked 
+
+        //when you put false it work as a bubbling mode,
+        // document.querySelector("#grandparent")
+        // .addEventListener('click',()=>{
+        //     console.log("grandparent clicked");
+        // },false)
+
+        // document.querySelector("#parent")
+        // .addEventListener('click',()=>{
+        //     console.log("parent clicked");
+        // },false)
+
+        // document.querySelector("#child")
+        // .addEventListener('click',()=>{
+        //     console.log("child clicked");
+        // },false)
+
+        //when you put true it work as a capturing mode,
+        // when child div click then output is grandparent clicked, parent clicked ,  child clicked 
+        // when parent div click then  output is grandparent clicked , parent clicked
+        // when grandparent div click then  output is grandparent clicked 
+        //  document.querySelector("#grandparent")
+        // .addEventListener('click',()=>{
+        //     console.log("grandparent clicked");
+        // },true)
+
+        // document.querySelector("#parent")
+        // .addEventListener('click',()=>{
+        //     console.log("parent clicked");
+        // },true)
+
+        // document.querySelector("#child")
+        // .addEventListener('click',()=>{
+        //     console.log("child clicked");
+        // },true)
+
+
+        ////////////////////////////////////////////////////////
+
+        //  document.querySelector("#grandparent")
+        // .addEventListener('click',()=>{
+        //     console.log("grandparent clicked");
+        // },false)
+
+        // document.querySelector("#parent")
+        // .addEventListener('click',(e)=>{
+        //     console.log("parent clicked");
+        //     e.stopPropagation();
+        // },false)
+
+        // document.querySelector("#child")
+        // .addEventListener('click',()=>{
+        //     console.log("child clicked");
+        // },true)
+
+        //when click on child
+        // o/p child clicked
+        // parent clicked
+        // when click on parent
+        // o/p parent clicked
+        // when click on grandparent
+        // o/p grandparent clicked
+
+
+       document.querySelector("#grandparent")
+        .addEventListener('click',()=>{
+            console.log("grandparent clicked");
+        },true)
+
+        document.querySelector("#parent")
+        .addEventListener('click',(e)=>{
+            console.log("parent clicked");
+            e.stopPropagation();
+        },false)
+
+        document.querySelector("#child")
+        .addEventListener('click',()=>{
+            console.log("child clicked");
+        },true)
+
+        //o/p when child clicked
+        //grandparent clicked
+        //child clicked
+        //parent child
+
+        //o/p when parent clicked
+        //grandparent clicked
+        //parent clicked
+        
+
+        //o/p when grandparent  clicked
+        //grandparent clicked
+       
+
+
+//Event bubbling and capturing are two ways of event propagation in the HTML DOM API, when an event occurs in 
+// an element inside another element, and both elements have registered a handle for that event. The event 
+// propagation mode determines in which order the elements receive the event.With bubbling, the event 
+// is first captured and handled by the innermost element and then propagated to outer elements.With capturing, 
+// the event is first captured by the outermost element and propagated to the inner elements.
+    </script>
+</html>

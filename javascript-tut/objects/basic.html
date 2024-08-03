@@ -1,0 +1,64 @@
+<script>
+    let obj  = {name:"vridhi",role:"software developer"}
+    console.log(obj,'ppp') 
+    obj.name = "vridhi wadhawan"
+    console.log(obj,'lll')
+
+    delete obj.name
+    console.log(obj,'ooooo') //   let obj  = {role:"software developer"}
+
+    let func  = (
+    function (a) {
+    delete a; // it works only on object
+    return a;
+    })(5)
+
+    console.log(func) //o/p 5
+
+
+    let objs  = {name:"vridhi",role:"software developer","hello world" :true}
+    console.log(objs["hello world"]) //o/p true
+    delete objs["hello world"] // o/p objs  = {name:"vridhi",role:"software developer"}
+
+
+    const  property = "firstName";
+    const  name = "vridhi wadhawan"
+    const data ={[property] :name}
+    console.log(data) // o/p { firstName: "vridhi wadhawan"}
+
+
+    const user = {name:"vridhi wadhawan",role:"software developer",isTotallyAwesome:"true"}
+    for(key in user){
+        console.log(user[key]) // vridhi wadhawan ,software developer,true
+    }
+
+
+    const obj = {
+        a:"one",
+        b:"two",
+        a:"three"
+    }
+
+    console.log(obj) //{ a: "three", b: "two"}
+
+
+    let datas ="vridhi"
+    console.log([...datas]) //["v", "r", "i", "d", "h", "i"]
+
+
+    let obj1 = {name:"vridhi",age:23}
+    let admin = {admin:true , ...obj1}
+    console.log(admin) //o/p{admin: true,age: 23,name: "vridhi"}
+
+
+    let newobj ={
+        name:"vridhi",
+        fullname:{
+            lastName:"wadhawan"
+        }
+    }
+
+    const {name:newName,fullname:{lastName}} =newobj
+    console.log(newName,lastName)//vridhi wadhawan
+
+</script>

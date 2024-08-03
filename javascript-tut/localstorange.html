@@ -1,0 +1,43 @@
+<script>
+// localStorage data does not have an expiration date by default.
+// It persists indefinitely until it is explicitly deleted by the application or the user.
+// This means that data stored in localStorage will remain even if the user closes the browser,
+// restarts their computer, or comes back to the website days, months, or years later.
+// However, you can implement your own expiration logic by storing a timestamp along with the data and
+// checking it each time you access the data.
+
+// sessionStorage data is designed to persist only for the duration of the page session.
+//This means that the data stored in sessionStorage is automatically cleared when the page session ends.
+//A page session ends when the browser tab or window is closed.
+//data is automatically cleared when the browser tab or window is closed
+// Because sessionStorage is meant to be temporary and tied to a single session, there is no built-in mechanism
+// to set an explicit expiration date. The data will always expire as soon as the tab or window is closed.
+
+// Cookies can have an expiration date, which determines how long they persist.
+//If no expiration date is set, the cookie is considered a session cookie and will expire when the browser is closed.
+
+  localStorage.setItem("LocalName1", "vridhi");
+  localStorage.setItem("LocalName2", "helloworld");
+
+  sessionStorage.setItem("SessionName1", "vridhi");
+  sessionStorage.setItem("SessionName2", "helloworld");
+
+  // let name = localStorage.getItem('Name2');
+  // let names = localStorage.getItem('dfdsf');
+  // console.log(names); //o/p null
+
+  // localStorage.clear();
+  // localStorage.removeItem('Name');
+  // console.log(name); //o/p name value
+
+  // let arr = ['a','b','c','d'];
+  // localStorage.setItem('array',arr); // it store value in a string a,b,c,d
+
+  //The JSON.stringify() method converts a JavaScript object or value to a JSON string
+  //In JSON, keys must be strings, written with double quotes  {"name":"John"}
+  //In JavaScript, keys can be strings, numbers, or identifier names: {name:"John"}
+  //console.log(JSON.stringify({ x: 5, y: 6 })); expected output: "{"x":5,"y":6}"
+  // localStorage.setItem('array',JSON.stringify(arr)); // store a value in array
+  // console.log(JSON.parse(localStorage.getItem('array'))) ;
+
+</script>

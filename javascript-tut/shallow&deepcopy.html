@@ -1,0 +1,77 @@
+<script>
+  let dataSets1 = {
+    name: "vridhi",
+    skils: {
+      primary: "fullstack",
+      secondary: "devops",
+    },
+    calculateAge: function (params) {
+      return 30;
+    },
+    joiningDate: new Date(),
+  };
+  //   let dataSets2 = dataSets1;
+  //   dataSets2.name = "Akash";
+
+  //   console.log(dataSets1, "dataSets1"); akash
+  //   console.log(dataSets2, "dataSets2");akash
+
+  //   let dataSets2 = Object.assign({}, dataSets1);
+  //   dataSets2.name = "Akash";
+
+  //   console.log(dataSets1, "dataSets1"); vridhi
+  //   console.log(dataSets2, "dataSets2");  akash
+
+  //   let dataSets2 = { ...dataSets1 };
+  //   dataSets2.name = "Akash";
+  //   dataSets2.skils.primary = "backend developer";
+
+  //   console.log(dataSets1, "dataSets1"); //vridhi //{primary: 'backend developer'}
+  //   console.log(dataSets2, "dataSets2"); //akash //{primary: 'backend developer'}
+
+  let dataSets2 = JSON.parse(JSON.stringify(dataSets1));
+  dataSets2.name = "Akash";
+  dataSets2.skils.primary = "babckend developer";
+
+  console.log(dataSets1, "dataSets1"); //vridhi //{primary: "fullstack"}
+  console.log(dataSets2, "dataSets2"); //akash //{primary: 'backend developer'}
+  console.log(typeof dataSets1.joiningDate, "dataSets1-joiningDate");
+  console.log(typeof dataSets2.joiningDate, "dataSets2-joiningDate");
+  //dataset1
+  // calculateAge: ƒ (params)
+  // joiningDate: Sun Apr 24 2022 18:04:48 GMT+0530 (India Standard Time) {}
+  // name: "vridhi"
+  // skils: {primary: 'fullstack', secondary: 'devops'}
+
+  //dataset2 // calculate age is not there , joiningDate is string object
+  // joiningDate: "2022-04-24T12:34:48.092Z"
+  // name: "Akash"
+  // skils: {primary: 'babckend developer', secondary: 'devops'}
+
+  // for this we use loadash library
+
+  let counter = 1;
+  let copiedCounter = counter;
+  copiedCounter = 2;
+  console.log(counter, copiedCounter); //1, 2
+
+  //deep copying vs. shallow copying. A deep copy means that all of the values of the new variable are copied
+  //and disconnected from the original variable. A shallow copy means that certain (sub-)values are still
+  //connected to the original variable.
+
+  //Lodash To Deep Copy: Lodash is a JavaScript library that provides multiple utility functions and one of
+  // the most commonly used function of the Lodash library is the cloneDeep() method. This method helps in
+  //deep cloning of an object and also clones the non serializable properties which were a limitation in the
+
+  //https://www.javascripttutorial.net/object/3-ways-to-copy-objects-in-javascript/
+
+  // Shallow Copy: When a reference variable is copied into a new reference variable using the assignment operator,
+  // a shallow copy of the referenced object is created. In simple words, a reference variable mainly stores the
+  // address of the object it refers to. When a new reference variable is assigned the value of the old reference
+  // variable, the address stored in the old reference variable is copied into the new one. This means both the
+  // old and new reference variable point to the same object in memory. As a result if the state of the object
+  // changes through any of the reference variables it is reflected for both.
+
+  // Deep Copy: Unlike the shallow copy, deep copy makes a copy of all the members of the old object,allocates
+  // separate memory location for the new object and then assigns the copied members to the new object.
+</script>

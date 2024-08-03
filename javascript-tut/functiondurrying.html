@@ -1,0 +1,108 @@
+<script>
+    // Function currying is a technique in functional programming where a function that takes multiple arguments
+    // is transformed into a sequence of functions, each taking a single argument. Currying helps in creating
+    // higher-order functions and enables partial application of functions.
+
+  //1
+  //Script Scope
+  //curriedSum: undefined
+  //Global
+
+  //2
+  // Local Scope
+  // this: Window
+  // f: ƒ sum(a, b)
+  // Script Scope
+  // curriedSum: undefined
+  // Global
+
+  //3
+  //Script
+  // curriedSum: ƒ (a)
+  // Global
+
+  //4
+  // Local Scope
+  // this: Window
+  // a: 1
+  // Closure (curry)
+  // f: ƒ sum(a, b)
+  // Script Scope
+  // curriedSum: ƒ (a)
+
+  // Global Scope
+  function curry(f) {
+    // curry(f) does the currying transform
+    return function (a) {
+      return function (b) {
+        return f(a, b);
+      };
+    };
+  }
+  // usage
+  function sum(a, b) {
+    return a + b;
+  }
+
+  let curriedSum = curry(sum); //curriedSum: ƒ (a)
+  console.log(curriedSum, "curriedSum");
+  console.log(curriedSum(1)(2)(4)); // 3
+
+  //Currying is helpful when you have to frequently call a function with a fixed argument.
+
+  // Without currying
+  // const error = msg => log("error", msg);
+  // const warn = msg => log("warn", msg);
+  // const info = msg => log("info", msg);
+
+  // // With currying
+  // log = curry(log)
+  // const error = log("error")
+  // const warn = log("warn")
+  // const info = log("info")
+
+  function add(a: number, b: number): number {
+       return a + b;
+  }
+  
+function add(a: number) {
+    return function(b: number): number {
+        return a + b;
+};
+    
+const add5 = add(5); // add5 is now a function that takes a single argument
+console.log(add5(3)); // Outputs: 8
+console.log(add5(10)); // Outputs: 15
+
+function multiply(a: number) =>  {
+  return function(b: number) {
+    return function(c: number) {
+      return a * b * c;
+    };
+  }
+}
+
+function curry(func: Function): Function {
+  return function curried(...args: any[]) {
+    if (args.length >= func.length) {
+      return func.apply(this, args);
+    } else {
+      return function(...nextArgs: any[]) {
+        return curried.apply(this, args.concat(nextArgs));
+      };
+    }
+  };
+}
+
+function addThree(a: number, b: number, c: number): number {
+  return a + b + c;
+}
+
+const curriedAddThree = curry(addThree);
+console.log(curriedAddThree(1)(2)(3)); // Outputs: 6
+console.log(curriedAddThree(1, 2)(3)); // Outputs: 6
+console.log(curriedAddThree(1)(2, 3)); // Outputs: 6
+
+    
+}
+</script>

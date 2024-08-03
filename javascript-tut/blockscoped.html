@@ -1,0 +1,113 @@
+<script>
+// what is block in js?
+// block is also knowns as compound statement 
+{
+    //compound statement 
+}
+// a block is used to combined multiple javascript code into one statement or multiple code into a group
+// group of statement is used in a place where javascript except one statement
+
+// block scope means what all function and variable access inside block
+// let and const are hoisted in block scope and var is hoisted in global scope //let and const are not accessible outside the block
+
+// three scopes //1)block scope 2) global scope 3) script scope
+// what is shadowing in javascript
+// when a variable is declared in a certain scope having the same name defined on its outer scope This is known as Shadowing or 
+// Variable Shadowing. 
+//and when we call the variable from the inner scope, the value assigned to the variable in the inner scope 
+// is the value that will be stored in the variable in the memory space. 
+
+// in case of var
+
+//b and c hoisted in script scope
+let b =20;
+const c =30;
+
+//b and c hoisted in block scopee
+{
+  let b =20;
+ const c =30;
+}
+
+{
+  var a =10;
+  let b =20;
+  const c =30;
+  console.log(a); //o/p 10
+  console.log(b); //o/p 20
+  console.log(c); //o/p 30
+}
+console.log(a); //o/p 10 because a is in global scope
+console.log(b); // reference error b is not defined because b is in block scope and block is now gone 
+console.log(c);
+
+
+// shadowing
+
+
+var a =100;
+{ 
+  var a = 10;  //this variable shadows var a = 100 variable and change variable a to 10 because they both pointed to same memory locations global memory
+  let b = 20;
+  const c = 30;
+  console.log(a); // o/p 10
+  console.log(b);// o/p 20
+  console.log(c);// o/p 30
+ }
+console.log(a); // o/p 10
+
+var d= 100; // global scope
+function a()
+{
+ var d = 10; //local scope
+ console.log(d)//10;
+}
+a();
+console.log(d)//100
+
+// in case of let
+let b =100; // it is not in block or global scope it is in script scope
+{ 
+  var a = 10; 
+  let b = 20; //this variable shadows let b = 100 variable this is in block scope
+  const c = 30;
+  console.log(a); // o/p 10
+  console.log(b); // o/p 20
+  console.log(c);// o/p 30
+ }
+console.log(b); // o/p 100
+
+
+// in case of const
+const c =100; // it is not in block or global scope it is in script scope
+{ 
+  var a = 10; 
+  let b = 20; 
+  const c = 30;//this variable shadows var c = 100 variable
+  console.log(a); // o/p 10
+  console.log(b); // o/p 20
+  console.log(c);// o/p 30
+ }
+console.log(c); // o/p 100
+
+const c = 100; 
+function x(){ 
+  const c = 30;
+  console.log(c);// o/p 30
+}
+ x();
+console.log(c); // o/p 100
+
+
+
+// illegal shadowing 
+let a = 20
+{
+    var a = 20; // synatx error  a is already declared
+}
+
+var a = 20
+{
+    let a = 20; // perfectly valid
+}
+</script>
