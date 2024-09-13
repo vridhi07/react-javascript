@@ -65,6 +65,30 @@ Q18. What is the difference between Object.create vs new
 Q19. What is the difference between Shallow copy vs Deep copy
 Q20. Write a program for shallow compare vs deep compare
 Q21. What is the difference between  __proto__ vs prototype
+
+function Person(name){
+    this.name = name;
+}
+
+Person.prototype.sayHello = function(){
+    console.log(this.name)
+}
+
+const person1 = new Person('heeloo');
+const person2 = new Person('hlllll');
+
+const obj1 = {
+    name:'sdds',
+    rollno:12
+}
+
+const obj2 = {
+    __proto__ : obj1
+
+}
+
+console.log(obj2.name)
+
 Q22. What is the prototype chain
 Q23. What is Prototype inheritance
 Q24. What is Promise, Why we should have to use it instead of call back

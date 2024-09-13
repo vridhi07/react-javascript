@@ -56,6 +56,7 @@ console.log(a.c.d)
 
 const x  = {...a} // 10 200
 const x =  JSON.parse(JSON.stringify(a)); // 10 20
+const x = {...a, c: {...a.c}} // 10 20
 
 
 //q1  const arr  = [1 ,[2], [3,4] ]

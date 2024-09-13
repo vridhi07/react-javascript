@@ -1,0 +1,142 @@
+// Marks Find the Substring Given s and x, determine the zero-based index of the first occurr String s consists of lowercase letters in the range ascii[a-z]. String x consists of lowercase letters and may also contain a sing character, *, that represents any one character. Example s = "xabcdey" X = "ab* de" ​
+
+
+function subStr(s1, s2) {
+
+    function matches(substring, pattern) {
+        for (let i = 0; i < pattern.length; i++) {
+            if (pattern[i] === '*') {
+                continue;
+            }
+            if (substring[i] !== pattern[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    for (let i = 0; i <= s1.length - s2.length; i++) {
+        let substring = s1.substring(i, s2.length);
+        console.log(substring,'substring')
+        //xabcd substring
+
+        //abcde substring
+        if (matches(substring, s2)) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+// Example
+const s = "xabcdey";
+const x = "ab*de";
+             const result = subStr(s, x);
+console.log(result);  // Output should be 1
+
+// async function driveAsyncWrapper() {
+
+//   const driveAsyncFn = async () => {
+
+//       let promise = new Promise((resolve, reject) => {
+
+//           setTimeout(() => resolve("G"), 2000)
+
+//       })
+
+//       console.log("A")
+
+//       let result = await promise
+
+//       console.log("B")
+
+//       return result
+
+//   }
+
+//   console.log("C")
+
+//   const results = await driveAsyncFn();
+
+//   console.log(results);
+
+//   console.log("D")
+
+// }
+
+// console.log("E")
+
+// driveAsyncWrapper()
+
+// console.log("F")
+
+// // output - > E
+                 C
+                 A
+                 F
+                 B
+                 G
+                 D
+
+                 promise.then():
+
+                 Instead of using await to pause and wait for the promise to resolve, you use .then() to handle the resolved value.
+                 Inside .then(), the code block (console.log("B"); console.log(result);) runs after the promise resolves (after 2 seconds).
+                 Execution Flow:
+
+                 The promise will still resolve after 2 seconds, but instead of waiting for the result using await,
+                 the then() block will run asynchronously when the promise resolves.
+
+
+// ;
+// function funA(a){
+//   return  function funB(b){
+//       a = a + b
+//       return a;
+//     }
+// }
+
+// const data = funA(10) ;
+// console.log(data(1));
+// console.log(data(1));
+// console.log(data(1));
+// console.log(data(1));
+
+
+//[{ 0: 1 ,1: 2 }]
+
+
+
+
+
+const arr = [2,3,4,5,6,7];
+function sumOfOddNumber (arr) {
+    const arr1 = [] ;
+    for(let i = 0 ; i < arr.length - 1 ; i++){
+
+          for(let j = i ; j < arr.length ; j++){
+            const obj = {};
+             const sum = arr[i] + arr[j];
+                if( sum % 2 !== 0) {
+                    obj[i] = arr[i];
+                    obj[j] = arr[j];
+                    arr1.push(obj)
+             }
+         }
+
+ }
+
+    return arr1;
+
+
+}
+
+console.log(sumOfOddNumber(arr))
+
+
+
+
+
+
+
